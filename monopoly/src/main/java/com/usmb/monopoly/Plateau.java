@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Plateau {
-    public List<Case> case = new ArrayList<Case> ();
+    public List<Case> cases = new ArrayList<Case> ();
 
     public Départ départ;
 

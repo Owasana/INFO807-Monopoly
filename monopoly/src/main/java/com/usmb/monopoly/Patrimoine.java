@@ -1,24 +1,25 @@
 package com.usmb.monopoly;
+import java.util.HashMap;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Patrimoine {
-    public List<Quartier> quartier = new ArrayList<Quartier> ();
+    public HashMap<Couleurs, Quartier> quartiers = new HashMap<Couleurs, Quartier> ();
+    public ArrayList<Service> services = new ArrayList<Service>();
+    public ArrayList<Gare> gares = new ArrayList<Gare>();
 
-    public Service service;
-
-    public Gare gare;
-
-    public void ajouterCase(Case case) {
+    public void ajouterCase(Case _case) {
     }
 
     public Quartier getQuartierParCouleur(Couleurs couleur) {
+        return quartiers.get(couleur);
     }
 
     public int nombreService() {
+        return services.size();
     }
 
     public int nombreGare() {
+        return gares.size();
     }
 
 }

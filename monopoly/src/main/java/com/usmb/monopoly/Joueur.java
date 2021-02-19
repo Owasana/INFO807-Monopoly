@@ -5,7 +5,7 @@ public class Joueur {
 
     public int solde;
 
-    public Case case;
+    public Case _case;
 
     public Gobelet gobelet;
 
@@ -15,12 +15,13 @@ public class Joueur {
     }
 
     public int lancerDès() {
+        return gobelet.tirer();
     }
 
     public void avancer() {
     }
 
-    public void setCaseCourante(Case case) {
+    public void setCaseCourante(Case _case) {
     }
 
     public void acheter() {
@@ -35,10 +36,10 @@ public class Joueur {
     public void finirTour() {
     }
 
-    public void proposerAchat(Case caseActuelle, int cout) {
+    public void proposerAchat(Case _caseActuelle, int cout) {
     }
 
-    public void facturer(Case case) {
+    public void facturer(Case _case) {
     }
 
     public void payerFacture() {

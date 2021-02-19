@@ -1,24 +1,17 @@
 package com.usmb.monopoly;
 
 public abstract class EtatCase {
-    public CaseAchetable case;
+    public CaseAchetable _case;
 
-    public boolean estAchetable() {
-    }
+    public abstract boolean estAchetable();
 
-    public void acheter(Joueur proprietaire) {
-    }
+    public abstract void acheter(Joueur proprietaire);
 
-    public void arriverSur(Joueur joueur) {
-    }
+    public abstract void arriverSur(Joueur joueur);
 
-    public void construireMaison(int nbMaison, Joueur joueur) {
-    }
+    public abstract void construireMaison(int nbMaison, Joueur joueur);
 
-    public void devenirConstructible() {
-    }
+    public abstract void devenirConstructible();
 
-    public int coutTaxe() {
-    }
-
+    public abstract int coutTaxe();
 }

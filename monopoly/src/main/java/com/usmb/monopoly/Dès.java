@@ -1,7 +1,11 @@
 package com.usmb.monopoly;
 
-public class Dès {
-    public int tirer() {
-    }
+import java.util.Random;
 
+public class Dès {
+    private Random r = new Random();
+
+    public int tirer() {
+        return r.nextInt(6) + 1;
+    }
 }

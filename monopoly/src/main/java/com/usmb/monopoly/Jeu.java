@@ -9,6 +9,7 @@ public class Jeu {
     }
 
     public int creerPartie(String createur) {
+        return 0;
     }
 
     public void rejoindrePartie(int idPartie, String participant) {

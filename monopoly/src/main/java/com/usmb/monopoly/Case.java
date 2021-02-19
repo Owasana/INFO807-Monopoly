@@ -1,23 +1,26 @@
 package com.usmb.monopoly;
-package com.usmb.monopoly;
 
 public abstract class Case {
     public int numero;
 
     public Couleurs couleur;
 
-    public Case case;
+    public Case suivant;
 
     public Case avancer(int nbCases, Joueur joueur) {
+        return suivant;
     }
 
     public boolean estAchetable(int solde) {
+        return true;
     }
 
     public int acheter(Joueur joueur) {
+        return 0;
     }
 
     public Couleurs getCouleur() {
+        return couleur;
     }
 
     public void arriverSur(Joueur joueur) {
@@ -31,8 +34,4 @@ public abstract class Case {
 
     public void payerTaxe(Joueur joueur) {
     }
-
-    public Case getCase(String nomCase) {
-    }
-
 }
