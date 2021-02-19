@@ -1,3 +1,4 @@
+package com.usmb.monopoly;
 
 public abstract class CaseAchetable extends Case {
     public EtatCase etat;

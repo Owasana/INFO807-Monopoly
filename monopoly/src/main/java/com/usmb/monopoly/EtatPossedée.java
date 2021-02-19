@@ -1,3 +1,4 @@
+package com.usmb.monopoly;
 
 public class EtatPossedée extends EtatCase {
     public Joueur proprietaire;

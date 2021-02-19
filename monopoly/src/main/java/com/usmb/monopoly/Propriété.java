@@ -1,3 +1,4 @@
+package com.usmb.monopoly;
 
 public class Propriété extends CaseAchetable {
     public int[] loyer = new int[5];

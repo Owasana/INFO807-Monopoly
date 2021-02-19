@@ -1,3 +1,4 @@
+package com.usmb.monopoly;
 
 public abstract class EtatCase {
     public CaseAchetable case;

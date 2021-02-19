@@ -1,3 +1,4 @@
+package com.usmb.monopoly;
 
 public class EtatConstructible extends EtatPossedée {
     public int nbMaisonsConstruites;

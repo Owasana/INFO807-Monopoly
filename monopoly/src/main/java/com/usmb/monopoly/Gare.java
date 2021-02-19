@@ -1,3 +1,4 @@
+package com.usmb.monopoly;
 
 public class Gare extends CaseAchetable {
     public int prix;

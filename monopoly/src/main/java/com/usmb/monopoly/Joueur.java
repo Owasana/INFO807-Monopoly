@@ -1,3 +1,4 @@
+package com.usmb.monopoly;
 
 public class Joueur {
     public String nom;

@@ -1,3 +1,5 @@
+package com.usmb.monopoly;
+package com.usmb.monopoly;
 
 public abstract class Case {
     public int numero;
