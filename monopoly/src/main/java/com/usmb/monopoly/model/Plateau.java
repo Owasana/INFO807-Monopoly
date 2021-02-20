@@ -97,9 +97,6 @@ public class Plateau {
         if (_case != null) {
             _case.construireMaison(nombreMaison, joueur);
         }
-        else {
-            System.out.println("non trouvé");
-        }
     }
 
     public Case getCase(String numeroCase) {

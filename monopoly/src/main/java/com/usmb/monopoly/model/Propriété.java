@@ -21,16 +21,12 @@ public class Propriété extends CaseAchetable {
     @Override
     public void acheter(Joueur joueur, Patrimoine patrimoine) {
         super.acheter(joueur, patrimoine);
-        patrimoine.ajouterPropriete(this);
+        patrimoine.ajouterPropriete(this, this.couleur);
     }
 
     @Override
     public int coutTaxeBase(Joueur joueur) {
         return this.coutTerrainNu;
-    }
-
-    public Couleurs getCouleur() {
-        return couleur;
     }
 
     public void setQuartier(Quartier quartier) {

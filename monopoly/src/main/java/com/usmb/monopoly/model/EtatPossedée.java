@@ -13,7 +13,7 @@ public abstract class EtatPossedée extends EtatCase {
     }
 
     @Override
-    public void acheter(Joueur proprietaire) {
+    public void acheter(Joueur proprietaire, Patrimoine patrimoine) {
 
     }
 

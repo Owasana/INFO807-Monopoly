@@ -28,8 +28,8 @@ public class Patrimoine {
         gares.add(_case);
     }
 
-    public void ajouterPropriete(Propriété _case) {
-        Quartier quartier = this.getQuartierParCouleur(_case.getCouleur());
+    public void ajouterPropriete(Propriété _case, Couleurs couleur) {
+        Quartier quartier = this.getQuartierParCouleur(couleur);
         quartier.ajouterPropriete(_case);
     }
 

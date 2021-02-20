@@ -7,7 +7,7 @@ public abstract class EtatCase {
         this._case = _case;
     }
 
-    public abstract void acheter(Joueur proprietaire);
+    public abstract void acheter(Joueur proprietaire, Patrimoine patrimoine);
 
     public abstract void arriverSur(Joueur joueur);
 

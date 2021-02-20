@@ -6,7 +6,7 @@ public class EtatLibre extends EtatCase {
     }
 
     @Override
-    public void acheter(Joueur proprietaire) {
+    public void acheter(Joueur proprietaire, Patrimoine patrimoine) {
         this._case.setEtat(new EtatNonConstructible(this._case, proprietaire));
         proprietaire.débiter(this._case.coutAchat());
     }

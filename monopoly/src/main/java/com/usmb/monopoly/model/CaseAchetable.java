@@ -18,7 +18,7 @@ public abstract class CaseAchetable extends Case {
 
     @Override
     public void acheter(Joueur joueur, Patrimoine patrimoine) {
-        this.etat.acheter(joueur);
+        this.etat.acheter(joueur, patrimoine);
     }
 
     @Override
