@@ -56,13 +56,16 @@ public class MenuPartie implements Observer {
         PropositionAchatEvent propoosition = (PropositionAchatEvent)event;
         System.out.println("Proposition d'acchat de " + propoosition.nomCase + " à " + propoosition.cout);
         System.out.println("Voulez vous acheter ? o/n");
-        /*if (scanner.next() == "o")*/ {
+        if (scanner.next().startsWith("o")) {
             joueur.acheter();
         }
     }
 
     private void payerFacture(Joueur joueur, JoueurEvent event) {
+        System.out.println("Facture à payer");
 
+        FactureEvent factureEvent = (FactureEvent) event;
+        joueur.payerFacture();
     }
 
     public void caseCourante(JoueurEvent event) {

@@ -15,5 +15,7 @@ public abstract class EtatCase {
 
     public abstract void devenirConstructible();
 
-    public abstract int coutTaxe();
+    public abstract int coutTaxe(Joueur joueur);
+
+    public abstract void payerTaxe(Joueur joueur);
 }

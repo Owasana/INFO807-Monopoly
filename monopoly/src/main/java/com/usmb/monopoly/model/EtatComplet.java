@@ -16,7 +16,8 @@ public class EtatComplet extends EtatPossedée {
     }
 
     @Override
-    public int coutTaxe() {
-        return 0;
+    public int coutTaxe(Joueur joueur) {
+        Propriété prop = (Propriété) this._case;
+        return prop.coutLoyer(5);
     }
 }

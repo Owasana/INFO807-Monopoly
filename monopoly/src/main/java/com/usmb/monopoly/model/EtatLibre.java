@@ -27,7 +27,12 @@ public class EtatLibre extends EtatCase {
     }
 
     @Override
-    public int coutTaxe() {
+    public int coutTaxe(Joueur joueur) {
         return 0;
+    }
+
+    @Override
+    public void payerTaxe(Joueur joueur) {
+
     }
 }

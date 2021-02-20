@@ -39,7 +39,12 @@ public class EtatConstructible extends EtatPossedée {
     }
 
     @Override
-    public int coutTaxe() {
-        return 0;
+    public int coutTaxe(Joueur joueur) {
+        if (estVide()) {
+            return this._case.coutTerrainNu(joueur);
+        }
+
+        Propriété prop = (Propriété) this._case;
+        return prop.coutLoyer(this.nbMaisonsConstruites);
     }
 }

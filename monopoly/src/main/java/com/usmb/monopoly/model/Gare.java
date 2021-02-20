@@ -22,12 +22,7 @@ public class Gare extends CaseAchetable {
     }
 
     @Override
-    public int coutTerrainNu() {
-        return 0;
-    }
-
-    @Override
-    public int coutTaxe() {
+    public int coutTerrainNu(Joueur joueur) {
         return this.loyer * this.patrimoine.nombreGare();
     }
 

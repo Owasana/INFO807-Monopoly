@@ -4,14 +4,16 @@ public class Propriété extends CaseAchetable {
     public int[] loyers;
 
     public int coutConstructionMaison;
+    public int coutTerrainNu;
 
     public Quartier quartier;
 
     public Couleurs couleur;
 
-    public Propriété(String nom, Couleurs couleur, int prix, int loyers[], int coutConstructionMaison) {
+    public Propriété(String nom, Couleurs couleur, int prix, int coutTerrainNu, int loyers[], int coutConstructionMaison) {
         super(nom, prix);
         this.couleur = couleur;
+        this.coutTerrainNu = coutTerrainNu;
         this.loyers = loyers;
         this.coutConstructionMaison = coutConstructionMaison;
     }
@@ -23,13 +25,8 @@ public class Propriété extends CaseAchetable {
     }
 
     @Override
-    public int coutTerrainNu() {
-        return 0;
-    }
-
-    @Override
-    public int coutTaxe() {
-        return 0;
+    public int coutTerrainNu(Joueur joueur) {
+        return this.coutTerrainNu;
     }
 
     public Couleurs getCouleur() {

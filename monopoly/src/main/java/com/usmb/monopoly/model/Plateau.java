@@ -53,11 +53,12 @@ public class Plateau {
                 int prix = jsonCase.getInt("prix");
                 JSONArray jsonLoyers = jsonCase.getJSONArray("loyers");
 
-                int loyers[] = {jsonLoyers.getInt(0), jsonLoyers.getInt(1), jsonLoyers.getInt(2),
-                        jsonLoyers.getInt(3), jsonLoyers.getInt(4), };
+                int loyers[] = {jsonLoyers.getInt(1), jsonLoyers.getInt(2),
+                        jsonLoyers.getInt(3), jsonLoyers.getInt(4), jsonLoyers.getInt(5)};
                 int prixMaison = jsonCase.getInt("prixMaison");
+                int coutTerrainNu = jsonLoyers.getInt(0);
 
-                _case = new Propriété(nom, couleur, prix, loyers, prixMaison);
+                        _case = new Propriété(nom, couleur, prix, coutTerrainNu, loyers, prixMaison);
                 break;
             }
             case "gare":

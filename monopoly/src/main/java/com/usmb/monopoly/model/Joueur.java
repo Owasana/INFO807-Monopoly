@@ -20,7 +20,7 @@ public class Joueur extends Observable {
         this.nom = nom;
         this.gobelet = gobelet;
         this.partie = partie;
-        this.solde = 10000;
+        this.solde = 1000000;
     }
 
     public void envoieEvenement(JoueurEvent event) {
@@ -76,8 +76,8 @@ public class Joueur extends Observable {
         envoieEvenement(new FactureEvent(_case));
     }
 
-    public void payerFacture(Case _case) {
-
+    public void payerFacture() {
+        this._case.payerTaxe(this);
     }
 
     public void virement(Joueur beneficiaire, int montant) {

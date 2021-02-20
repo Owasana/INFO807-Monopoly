@@ -16,7 +16,7 @@ public class EtatNonConstructible extends EtatPossedée {
     }
 
     @Override
-    public int coutTaxe() {
-        return 0;
+    public int coutTaxe(Joueur joueur) {
+        return this._case.coutTerrainNu(joueur);
     }
 }

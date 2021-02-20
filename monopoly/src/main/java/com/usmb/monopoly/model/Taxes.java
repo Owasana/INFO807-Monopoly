@@ -7,4 +7,16 @@ public class Taxes extends Case {
         super(nom);
         this.coût = coût;
     }
+
+    @Override
+    public void arriverSur(Joueur joueur) {
+        super.arriverSur(joueur);
+        joueur.facturer(this);
+    }
+
+    @Override
+    public void payerTaxe(Joueur joueur) {
+        super.payerTaxe(joueur);
+        joueur.débiter(this.coût);
+    }
 }

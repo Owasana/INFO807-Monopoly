@@ -35,8 +35,11 @@ public abstract class CaseAchetable extends Case {
         this.etat = etat;
     }
 
-    public abstract int coutTerrainNu();
+    public abstract int coutTerrainNu(Joueur joueur);
 
-    public abstract int coutTaxe();
-
+    @Override
+    public void payerTaxe(Joueur joueur) {
+        super.payerTaxe(joueur);
+        this.etat.payerTaxe(joueur);
+    }
 }
