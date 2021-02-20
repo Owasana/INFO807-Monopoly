@@ -17,8 +17,8 @@ public class Service extends CaseAchetable {
     }
 
     @Override
-    public int coutTerrainNu(Joueur joueur) {
-        int coutBase = this.loyers[this.patrimoine.nombreService()];
+    public int coutTaxeBase(Joueur joueur) {
+        int coutBase = this.loyers[this.patrimoine.nombreService() - 1];
         return joueur.lancerDès() * coutBase;
     }
 

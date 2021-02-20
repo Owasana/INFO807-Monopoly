@@ -41,7 +41,7 @@ public class EtatConstructible extends EtatPossedée {
     @Override
     public int coutTaxe(Joueur joueur) {
         if (estVide()) {
-            return this._case.coutTerrainNu(joueur);
+            return this._case.coutTaxeBase(joueur) * 2;
         }
 
         Propriété prop = (Propriété) this._case;

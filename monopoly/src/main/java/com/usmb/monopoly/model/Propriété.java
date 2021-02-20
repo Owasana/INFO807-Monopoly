@@ -25,7 +25,7 @@ public class Propriété extends CaseAchetable {
     }
 
     @Override
-    public int coutTerrainNu(Joueur joueur) {
+    public int coutTaxeBase(Joueur joueur) {
         return this.coutTerrainNu;
     }
 
@@ -46,7 +46,7 @@ public class Propriété extends CaseAchetable {
     }
 
     public int coutLoyer(int nbMaison) {
-        return this.loyers[nbMaison];
+        return this.loyers[nbMaison - 1];
     }
 
 }

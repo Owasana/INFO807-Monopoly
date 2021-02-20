@@ -35,7 +35,7 @@ public abstract class CaseAchetable extends Case {
         this.etat = etat;
     }
 
-    public abstract int coutTerrainNu(Joueur joueur);
+    public abstract int coutTaxeBase(Joueur joueur);
 
     @Override
     public void payerTaxe(Joueur joueur) {

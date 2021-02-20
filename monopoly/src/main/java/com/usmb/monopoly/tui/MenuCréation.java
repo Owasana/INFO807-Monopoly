@@ -36,7 +36,7 @@ public class MenuCréation {
     {
         Partie partie = this.jeu.creerPartie("Paul");
         partie.ajouterJoueur("Luc");
-        partie.ajouterJoueur("Theo");
+        //partie.ajouterJoueur("Theo");
 
         return partie;
     }

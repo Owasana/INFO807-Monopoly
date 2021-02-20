@@ -94,7 +94,12 @@ public class Plateau {
 
     public void construireMaison(String numeroCase, int nombreMaison, Joueur joueur) {
         Case _case = this.getCase(numeroCase);
-        _case.construireMaison(nombreMaison, joueur);
+        if (_case != null) {
+            _case.construireMaison(nombreMaison, joueur);
+        }
+        else {
+            System.out.println("non trouvé");
+        }
     }
 
     public Case getCase(String numeroCase) {

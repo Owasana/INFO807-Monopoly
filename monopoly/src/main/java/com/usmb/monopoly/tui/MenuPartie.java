@@ -9,19 +9,21 @@ import java.util.Scanner;
 
 public class MenuPartie implements Observer {
     private Partie partie;
-    private Scanner scanner = new Scanner(System.in);
+    private Scanner scanner = new Scanner(System.in).useDelimiter("\\n");;
     private ArrayList<JoueurEvent> events;
 
     public MenuPartie(Partie partie) {
+        this.partie = partie;
+
         System.out.println("Partie démarrée");
 
-        miseEnPlaceTest(partie);
+        miseEnPlaceTest();
 
         partie.observerTourJoueur(this);
         partie.jouer();
     }
 
-    public void miseEnPlaceTest(Partie partie) {
+    public void miseEnPlaceTest() {
 
     }
 
@@ -29,7 +31,7 @@ public class MenuPartie implements Observer {
         System.out.println("Tour de " + joueur.getNom());
 
         events = new ArrayList<>();
-        System.out.println("Entrez la valeur du lancer : ");
+        System.out.print("Entrez la valeur du lancer : ");
         int lancer = scanner.nextInt();
         joueur.avancerTest(lancer);
 
@@ -48,14 +50,27 @@ public class MenuPartie implements Observer {
             }
         }
 
-        System.out.println("Passer :");
-        scanner.next();
+        String choix;
+        do {
+            System.out.print("Entrez une opération : Construire (c), Passer (p) : ");
+            choix = scanner.next();
+
+            if (choix.startsWith("c")) {
+                scanner.nextLine();
+                System.out.print("Entrez un nom de propriété : ");
+                String nomProprieté = scanner.next().strip();
+                scanner.nextLine();
+                System.out.print("Entrez le nombre de maison à construire : ");
+                int nbMaison = scanner.nextInt();
+                this.partie.construireMaison(nomProprieté, nbMaison, joueur);
+            }
+        } while (!choix.startsWith("p"));
     }
 
     private void proposerAchat(Joueur joueur, JoueurEvent event) {
         PropositionAchatEvent propoosition = (PropositionAchatEvent)event;
         System.out.println("Proposition d'acchat de " + propoosition.nomCase + " à " + propoosition.cout);
-        System.out.println("Voulez vous acheter ? o/n");
+        System.out.print("Voulez vous acheter ? o/n : ");
         if (scanner.next().startsWith("o")) {
             joueur.acheter();
         }
@@ -116,12 +131,12 @@ public class MenuPartie implements Observer {
 
     private void credit(JoueurEvent event, Joueur joueur) {
         CréditEvent créditEvent = (CréditEvent)event;
-        System.out.println(joueur.getNom() + " est créditer de " + créditEvent.montant + ", solde final de " + créditEvent.solde);
+        System.out.println(joueur.getNom() + " est crédité de " + créditEvent.montant + ", solde final de " + créditEvent.solde);
     }
 
     private void debit(JoueurEvent event, Joueur joueur) {
         DébitEvent débitEvent = (DébitEvent)event;
-        System.out.println(joueur.getNom() + " est débiter de " + débitEvent.montant + ", solde final de " + débitEvent.solde);
+        System.out.println(joueur.getNom() + " est débité de " + débitEvent.montant + ", solde final de " + débitEvent.solde);
     }
 
     private void lancerDès(JoueurEvent event) {

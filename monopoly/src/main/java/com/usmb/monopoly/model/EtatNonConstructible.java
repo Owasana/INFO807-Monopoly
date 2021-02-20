@@ -12,11 +12,11 @@ public class EtatNonConstructible extends EtatPossedée {
 
     @Override
     public void devenirConstructible() {
-        _case.setEtat(new EtatConstructible(_case, this.proprietaire));
+        this._case.setEtat(new EtatConstructible(this._case, this.proprietaire));
     }
 
     @Override
     public int coutTaxe(Joueur joueur) {
-        return this._case.coutTerrainNu(joueur);
+        return this._case.coutTaxeBase(joueur);
     }
 }
