@@ -3,8 +3,6 @@ package com.usmb.monopoly.model;
 public class Propriété extends CaseAchetable {
     public int[] loyers;
 
-    public int prix;
-
     public int coutConstructionMaison;
 
     public Quartier quartier;
@@ -12,11 +10,26 @@ public class Propriété extends CaseAchetable {
     public Couleurs couleur;
 
     public Propriété(String nom, Couleurs couleur, int prix, int loyers[], int coutConstructionMaison) {
-        super(nom);
+        super(nom, prix);
         this.couleur = couleur;
-        this.prix = prix;
         this.loyers = loyers;
         this.coutConstructionMaison = coutConstructionMaison;
+    }
+
+    @Override
+    public void acheter(Joueur joueur, Patrimoine patrimoine) {
+        super.acheter(joueur, patrimoine);
+        patrimoine.ajouterPropriete(this);
+    }
+
+    @Override
+    public int coutTerrainNu() {
+        return 0;
+    }
+
+    @Override
+    public int coutTaxe() {
+        return 0;
     }
 
     public Couleurs getCouleur() {

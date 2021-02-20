@@ -15,15 +15,23 @@ public class MenuPartie implements Observer {
     public MenuPartie(Partie partie) {
         System.out.println("Partie démarrée");
 
+        miseEnPlaceTest(partie);
+
         partie.observerTourJoueur(this);
-        //partie.jouer();
+        partie.jouer();
+    }
+
+    public void miseEnPlaceTest(Partie partie) {
+
     }
 
     public void tourJoueur(Joueur joueur) {
         System.out.println("Tour de " + joueur.getNom());
 
         events = new ArrayList<>();
-        joueur.avancer();
+        System.out.println("Entrez la valeur du lancer : ");
+        int lancer = scanner.nextInt();
+        joueur.avancerTest(lancer);
 
         for (JoueurEvent event : events) {
             switch (event.type) {
@@ -39,11 +47,18 @@ public class MenuPartie implements Observer {
                 }
             }
         }
+
+        System.out.println("Passer :");
+        scanner.next();
     }
 
     private void proposerAchat(Joueur joueur, JoueurEvent event) {
         PropositionAchatEvent propoosition = (PropositionAchatEvent)event;
         System.out.println("Proposition d'acchat de " + propoosition.nomCase + " à " + propoosition.cout);
+        System.out.println("Voulez vous acheter ? o/n");
+        /*if (scanner.next() == "o")*/ {
+            joueur.acheter();
+        }
     }
 
     private void payerFacture(Joueur joueur, JoueurEvent event) {
@@ -83,7 +98,27 @@ public class MenuPartie implements Observer {
                 lancerDès(event);
                 break;
             }
+            case DEBIT:
+            {
+                debit(event, joueur);
+                break;
+            }
+            case CREDIT:
+            {
+                credit(event, joueur);
+                break;
+            }
         }
+    }
+
+    private void credit(JoueurEvent event, Joueur joueur) {
+        CréditEvent créditEvent = (CréditEvent)event;
+        System.out.println(joueur.getNom() + " est créditer de " + créditEvent.montant + ", solde final de " + créditEvent.solde);
+    }
+
+    private void debit(JoueurEvent event, Joueur joueur) {
+        DébitEvent débitEvent = (DébitEvent)event;
+        System.out.println(joueur.getNom() + " est débiter de " + débitEvent.montant + ", solde final de " + débitEvent.solde);
     }
 
     private void lancerDès(JoueurEvent event) {

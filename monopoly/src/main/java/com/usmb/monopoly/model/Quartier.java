@@ -3,22 +3,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Quartier {
-    public Couleurs couleur;
+    int nbProperties;
+
+    public Quartier(int nbProperties) {
+        this.nbProperties = nbProperties;
+    }
 
     public List<Propriété> propriétés = new ArrayList<Propriété> ();
 
     public void ajouterPropriete(Propriété properiete) {
-    }
+        propriétés.add(properiete);
+        properiete.setQuartier(this);
 
-    public Propriété getPropriete(int numeroCase) {
-        return propriétés.get(numeroCase);
+        if (estConstructible()) {
+            devenirConstructible();
+        }
     }
 
     public boolean estConstructible() {
-        return false;
+        return (propriétés.size() == nbProperties);
     }
 
     public void devenirConstructible() {
+        for (Propriété prop : this.propriétés) {
+            prop.devenirConstructible();
+        }
     }
 
 }

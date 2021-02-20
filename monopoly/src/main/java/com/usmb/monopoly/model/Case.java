@@ -15,12 +15,21 @@ public class Case {
         this.suivant = suivant;
     }
 
-    public Case avancer(int nbCases, Joueur joueur) {
-        return suivant;
+    public void avancer(int nbCases, Joueur joueur) {
+        if (nbCases > 1) {
+            this.suivant.passerSur(joueur);
+            this.suivant.avancer(nbCases - 1, joueur);
+        }
+        else if (nbCases > 0) {
+            this.suivant.avancer(nbCases - 1, joueur);
+        }
+        else if (nbCases == 0) {
+            this.arriverSur(joueur);
+        }
     }
 
-    public int acheter(Joueur joueur) {
-        return 0;
+    public void acheter(Joueur joueur, Patrimoine patrimoine) {
+
     }
 
     public String getNom() { return nom; }

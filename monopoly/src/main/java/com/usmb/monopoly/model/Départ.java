@@ -7,4 +7,10 @@ public class Départ extends Case {
         super(nom);
         this.prime = prime;
     }
+
+    @Override
+    public void passerSur(Joueur joueur) {
+        super.passerSur(joueur);
+        joueur.créditer(prime);
+    }
 }

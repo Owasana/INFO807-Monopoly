@@ -18,6 +18,8 @@ public abstract class EtatPossedée extends EtatCase {
 
     @Override
     public void arriverSur(Joueur joueur) {
-
+        if (!estProprietaire(joueur)) {
+            joueur.facturer(this._case);
+        }
     }
 }

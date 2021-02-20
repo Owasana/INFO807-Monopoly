@@ -6,7 +6,9 @@ public class JoueurEvent {
         CASE_COURANTE_MODIFIE,
         PROPOSITION_ACHAT,
         FACTURE,
-        LANCER_DÈS
+        LANCER_DÈS,
+        DEBIT,
+        CREDIT
     };
 
     public EventType type;

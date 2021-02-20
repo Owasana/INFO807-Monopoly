@@ -20,6 +20,7 @@ public class Joueur extends Observable {
         this.nom = nom;
         this.gobelet = gobelet;
         this.partie = partie;
+        this.solde = 10000;
     }
 
     public void envoieEvenement(JoueurEvent event) {
@@ -42,6 +43,10 @@ public class Joueur extends Observable {
         _case.avancer(lancer, this);
     }
 
+    public void avancerTest(int lancer) {
+        _case.avancer(lancer, this);
+    }
+
     public void setCaseCourante(Case _case) {
         this._case = _case;
 
@@ -49,11 +54,12 @@ public class Joueur extends Observable {
     }
 
     public void acheter() {
-        this._case.acheter(this);
+        this._case.acheter(this, patrimoine);
     }
 
     public void débiter(int valeur) {
         this.solde -= valeur;
+        envoieEvenement(new DébitEvent(valeur, this.solde));
     }
 
     public void construireMaison(String numeroCase, int nombreMaison) {
@@ -61,7 +67,9 @@ public class Joueur extends Observable {
     }
 
     public void proposerAchat(int cout) {
-        envoieEvenement(new PropositionAchatEvent(this._case.getNom(), cout));
+        if (cout < this.solde) {
+            envoieEvenement(new PropositionAchatEvent(this._case.getNom(), cout));
+        }
     }
 
     public void facturer(Case _case) {
@@ -79,6 +87,7 @@ public class Joueur extends Observable {
 
     public void créditer(int montant) {
         this.solde += montant;
+        envoieEvenement(new CréditEvent(montant, this.solde));
     }
 
     public String getNom() {
