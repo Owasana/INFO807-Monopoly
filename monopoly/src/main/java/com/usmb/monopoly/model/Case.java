@@ -3,15 +3,15 @@ package com.usmb.monopoly.model;
 public class Case {
     public int numero;
 
-    public Couleurs couleur;
-
     public Case suivant;
 
     public String nom;
 
-    public Case(String nom, Couleurs couleur, Case suivant) {
+    public Case(String nom) {
         this.nom = nom;
-        this.couleur = couleur;
+    }
+
+    public void setSuivant(Case suivant) {
         this.suivant = suivant;
     }
 
@@ -21,10 +21,6 @@ public class Case {
 
     public int acheter(Joueur joueur) {
         return 0;
-    }
-
-    public Couleurs getCouleur() {
-        return couleur;
     }
 
     public String getNom() { return nom; }
@@ -37,7 +33,7 @@ public class Case {
 
     }
 
-    public void construireMaison(String nbMaisons, Joueur joueur) {
+    public void construireMaison(int nbMaisons, Joueur joueur) {
     }
 
     public void payerTaxe(Joueur joueur) {

@@ -1,7 +1,7 @@
 package com.usmb.monopoly.model;
 
 public class Propriété extends CaseAchetable {
-    public int[] loyer = new int[5];
+    public int[] loyers;
 
     public int prix;
 
@@ -9,8 +9,18 @@ public class Propriété extends CaseAchetable {
 
     public Quartier quartier;
 
-    public Propriété(String nom, Couleurs couleur, Case suivant) {
-        super(nom, couleur, suivant);
+    public Couleurs couleur;
+
+    public Propriété(String nom, Couleurs couleur, int prix, int loyers[], int coutConstructionMaison) {
+        super(nom);
+        this.couleur = couleur;
+        this.prix = prix;
+        this.loyers = loyers;
+        this.coutConstructionMaison = coutConstructionMaison;
+    }
+
+    public Couleurs getCouleur() {
+        return couleur;
     }
 
     public void setQuartier(Quartier quartier) {
@@ -18,6 +28,7 @@ public class Propriété extends CaseAchetable {
     }
 
     public void devenirConstructible() {
+        this.etat.devenirConstructible();
     }
 
     public int getCoutConstructionMaison() {
@@ -25,7 +36,7 @@ public class Propriété extends CaseAchetable {
     }
 
     public int coutLoyer(int nbMaison) {
-        return this.loyer[nbMaison];
+        return this.loyers[nbMaison];
     }
 
 }

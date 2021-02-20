@@ -16,7 +16,7 @@ public class MenuPartie implements Observer {
         System.out.println("Partie démarrée");
 
         partie.observerTourJoueur(this);
-        partie.jouer();
+        //partie.jouer();
     }
 
     public void tourJoueur(Joueur joueur) {

@@ -3,8 +3,8 @@ package com.usmb.monopoly.model;
 public abstract class CaseAchetable extends Case {
     public EtatCase etat;
 
-    public CaseAchetable(String nom, Couleurs couleur, Case suivant) {
-        super(nom, couleur, suivant);
+    public CaseAchetable(String nom) {
+        super(nom);
         this.etat = new EtatLibre(this);
     }
 
