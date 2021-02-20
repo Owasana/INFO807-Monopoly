@@ -56,10 +56,9 @@ public class MenuPartie implements Observer {
             choix = scanner.next();
 
             if (choix.startsWith("c")) {
-                scanner.nextLine();
                 System.out.print("Entrez un nom de propriété : ");
-                String nomProprieté = scanner.next().strip();
-                scanner.nextLine();
+                String nomProprieté = scanner.next().trim();
+                System.out.println(nomProprieté);
                 System.out.print("Entrez le nombre de maison à construire : ");
                 int nbMaison = scanner.nextInt();
                 this.partie.construireMaison(nomProprieté, nbMaison, joueur);

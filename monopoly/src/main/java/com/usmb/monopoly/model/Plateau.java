@@ -6,6 +6,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -21,15 +22,15 @@ public class Plateau {
         this.cases.add(this.départ);
         this.nomACase.put(this.départ.getNom(), this.départ);
 
-        Path fileName = Path.of("case-donnée.json");
-        String content = null;
+        Path fileName = Paths.get("case-donnée.json");
+        byte[] content = null;
         try {
-            content = Files.readString(fileName);
+            content = Files.readAllBytes(fileName);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        JSONArray root = new JSONArray(content);
+        JSONArray root = new JSONArray(new String(content));
         for (int i = 0; i < root.length(); i++) {
             JSONObject jsonCase = root.getJSONObject(i);
             ajouterCase(jsonCase);
